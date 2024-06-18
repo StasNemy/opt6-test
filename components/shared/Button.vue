@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ButtonHTMLAttributes } from "vue";
 
-export type TProps = {
+type TProps = {
   class?: string;
   onClick?: (payload: MouseEvent) => void;
   type?: ButtonHTMLAttributes["type"];
@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<TProps>(), {
 <template>
   <button
     :class="[
-      'btn flex items-center gap-1 text-p',
+      'btn flex items-center gap-1',
       props.class,
       {
         'bg-primary text-white': props.variant === 'primary',
@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<TProps>(), {
       },
     ]"
     :type="props.type"
-    @click="onClick"
+    @click="props.onClick"
   >
     <slot name="before" />
     <slot />

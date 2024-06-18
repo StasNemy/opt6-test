@@ -37,7 +37,6 @@ console.log(`documents/md/${route.path.split("/").at(-1)}`);
   }
   p {
     margin-bottom: 15px;
-    @apply text-p;
   }
 }
 </style>

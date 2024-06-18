@@ -13,14 +13,25 @@ const { data } = await useAsyncData("documents-6", () =>
 );
 
 const list = data?.value || [];
+
+const breakpoints = {
+  768: {
+    itemsToShow: 2,
+    snapAlign: "start",
+  },
+  1024: {
+    itemsToShow: 3,
+    snapAlign: "start",
+  },
+};
 </script>
 
 <template>
   <section class="container">
     <h2 class="text-center">Документы</h2>
-    <carousel :items-to-show="3">
+    <carousel :items-to-show="1.25" :breakpoints="breakpoints">
       <slide
-        class="h-[450px]"
+        class="h-96 md:h-[450px]"
         v-for="{ title, description, _id } in list"
         :key="title"
       >
@@ -28,7 +39,7 @@ const list = data?.value || [];
           class="rounded-[10px] border h-full border-gray-300 shadow-slide p-[25px] text-left flex flex-col"
         >
           <h3 class="text-primary-cobalt mb-[15px]">{{ title }}</h3>
-          <p class="text-p">{{ description }}</p>
+          <p>{{ description }}</p>
           <NuxtLink
             class="block btn bg-primary text-white w-full text-center mt-auto self-end"
             :to="{
@@ -68,14 +79,17 @@ const list = data?.value || [];
 .carousel {
   overflow-x: hidden;
   overflow-y: visible;
+  @apply md:mx-0 -mx-4;
 
   &__viewport {
     overflow: visible !important;
   }
   &__slide {
-    padding: 20px 17.5px;
-  }
-  &__pagination-button {
+    padding: 20px 12px;
+
+    @screen md {
+      padding: 20px 17.5px;
+    }
   }
 
   &__pagination {

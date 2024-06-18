@@ -69,12 +69,20 @@ const { open, close } = useModal({
 </script>
 
 <template>
-  <section class="container pt-20 flex flex-row-reverse gap-10">
-    <NuxtImg class="w-3/4 h-fit" src="/images/image 2.png" />
+  <section
+    class="container pt-10 sm:pt-20 flex flex-col-reverse lg:flex-row-reverse gap-10"
+  >
+    <NuxtImg
+      class="w-full sm:w-1/2 mx-auto lg:w-3/4 h-fit"
+      src="/images/image 2.png"
+    />
     <div class="w-auto">
       <h1 class="mb-6">Проверьте штрафы и зарегистрируйтесь в 1 клик</h1>
-      <form class="flex flex-col gap-4" @submit.prevent="onSubmit">
-        <div class="flex gap-[30px]">
+      <form
+        class="w-auto max-w-max sm:w-3/4 lg:w-auto flex flex-col gap-4"
+        @submit.prevent="onSubmit"
+      >
+        <div class="flex gap-4 md:gap-[30px] flex-wrap md:flex-nowrap">
           <div class="flex-1">
             <Input
               :error="formError.carNumber"
@@ -84,7 +92,7 @@ const { open, close } = useModal({
               label="Номер автомобиля"
             />
           </div>
-          <div>
+          <div class="w-full md:w-auto">
             <Input
               :error="formError.region"
               v-model="form.region"
@@ -94,7 +102,7 @@ const { open, close } = useModal({
             />
           </div>
         </div>
-        <div class="">
+        <div>
           <Input
             :error="formError.certificate"
             v-model="form.certificate"
@@ -103,7 +111,7 @@ const { open, close } = useModal({
             label="Свидетельство о регистрации ТС"
           />
         </div>
-        <div class="flex gap-[21px]">
+        <div class="flex gap-4 sm:gap-[21px] flex-wrap">
           <Button variant="primary" type="submit">
             <template #after>
               <NuxtImg

@@ -10,16 +10,32 @@ html {
 
 @layer base {
   h1 {
-    @apply text-h1;
+    @apply text-h2 sm:text-h1;
   }
   h2 {
-    @apply text-h2;
-  }
-  h5 {
-    @apply text-h5;
+    @apply text-h3 md:text-h2;
   }
   h3 {
-    @apply text-h3;
+    @apply md:text-h3;
+
+    @media screen and (max-width: 769.99px) {
+      font-size: 24px;
+      line-height: 120%;
+      font-weight: 600;
+    }
+  }
+  h5 {
+    @apply md:text-h5;
+
+    @media screen and (max-width: 769.99px) {
+      font-size: 16px;
+      line-height: 120%;
+      font-weight: 600;
+    }
+  }
+  p,
+  button {
+    @apply md:text-p;
   }
   section {
     @apply mb-20;
