@@ -7,8 +7,7 @@ const route = useRoute();
 
 watch(
   () => route.path,
-  (v) => {
-    console.log("🚀 ~ watch ~ v:", v);
+  () => {
     if (sideBar.value) {
       toggleSideBar();
     }
@@ -27,7 +26,7 @@ watch(
   >
     <header class="flex justify-between py-3 px-5 items-center">
       <NuxtLink class="" to="/">
-        <svgo-logo filled="false" class="logo" />
+        <svgo-logo :fontControlled="false" filled="false" class="logo" />
       </NuxtLink>
       <Button :onClick="toggleSideBar" class="w-12 h-12 text-[21px]">
         <span class="w-12 h-12 rotate-45">|</span>

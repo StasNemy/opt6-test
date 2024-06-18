@@ -11,7 +11,7 @@ const { toggleSideBar } = useSidebar();
         <ul class="flex items-center gap-7.5">
           <li>
             <NuxtLink to="/">
-              <svgo-logo filled="false" class="logo" />
+              <svgo-logo :fontControlled="false" filled="false" class="logo" />
             </NuxtLink>
           </li>
           <li class="hidden md:inline-block">

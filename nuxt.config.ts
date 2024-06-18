@@ -11,8 +11,20 @@ export default defineNuxtConfig({
   ],
   svgo: {
     autoImportPath: "./assets/icons/",
+    svgoConfig: {
+      plugins: [
+        {
+          name: "preset-default",
+          params: {
+            overrides: {
+              convertColors: false,
+            },
+          },
+        },
+      ],
+    },
   },
-  css: ["vue-final-modal/style.css", "~/assets/css/main.css"],
+  css: ["vue-final-modal/style.css", "~/assets/css/tailwind.css"],
   postcss: {
     plugins: {
       tailwindcss: {},
